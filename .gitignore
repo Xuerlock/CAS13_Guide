@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+.pytest_cache/
+
+# 项目特定
+examples/
+*.db
+*.log
+temp/
+output/
+
+# 系统文件
+*~
+*.swp
+*.swo
+.DS_Store
