@@ -14,8 +14,8 @@ A lightweight command-line toolkit for genome-scale Cas13 guide RNA design in de
 ## Installation
 
 ```bash
-git clone https://github.com/<YOUR-USER>/cas13-guide.git
-cd cas13-guide
+git clone https://github.com/Xuerlock/CAS13_Guide.git
+cd CAS13_Guide
 python -m venv .venv
 source .venv/bin/activate
 pip install -U pip
