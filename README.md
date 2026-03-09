@@ -1,6 +1,6 @@
 # CAS13-Guide
 
-A lightweight command-line toolkit for genome-scale Cas13 guide RNA design in microbial systems.
+A lightweight command-line toolkit for genome-scale Cas13 guide RNA design in designated species.
 
 ## Features
 
