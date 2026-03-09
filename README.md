@@ -1,4 +1,4 @@
-# CAS13-Guide
+# CAS13_Guide
 
 A lightweight command-line toolkit for genome-scale Cas13 guide RNA design in designated species.
 
