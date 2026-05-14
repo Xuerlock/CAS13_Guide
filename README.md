@@ -1,9 +1,4 @@
----
-title: "CAS13_Guide: A Complete Pipeline for Cas13 gRNA Design"
-author: "Xue"
-date: "2026-05-14"
-output: html_document
----
+# CAS13_Guide: A Complete Pipeline for Cas13 gRNA Design
 A robust, user-friendly pipeline for designing high-specificity CRISPR-Cas13 gRNAs, including sliding window candidate generation, off-target filtering, multi-criteria optimization, and non-target control (NTC) sequence generation.
 
 ## Overview
