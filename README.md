@@ -1,4 +1,4 @@
-# CAS13_Guide: A Complete Pipeline for Cas13 gRNA Design
+# CAS13_Guide: A Complete Pipeline for Genome-wide Cas13 gRNA Design
 A robust, user-friendly pipeline for designing high-specificity CRISPR-Cas13 gRNAs, including sliding window candidate generation, off-target filtering, multi-criteria optimization, and non-target control (NTC) sequence generation.
 
 ## Overview
@@ -68,7 +68,6 @@ Build a reference genome index and align candidates to detect off-targets.
 cd scripts/
 bash 02_bowtie.sh reference_genome.fa ../output/cas13_candidates.fa cas13
 ```
-
 **Parameters**:
 Path to reference genome FASTA (for Bowtie index building).
 Path to candidate spacer FASTA (output from 01_windowslide.py).
@@ -85,21 +84,18 @@ Merge alignment results and select optimal spacers using multi-criteria scoring.
 cd scripts/
 python 03_filter_merge.py --top-n 5 --max-position 1000 --prioritize-position
 ```
-
 **Parameters**:
 --top-n: Number of top-ranked gRNAs to retain per gene (default: 5).
 --max-position: Maximum allowable start position of spacer (default: 1000).
 --prioritize-position: Enable position-prioritized scoring mode (default: standard mode).
 --min-gc: Minimum GC percentage of spacer (default: 30).
 --max-gc: Maximum GC percentage of spacer (default: 70).
-
 **Scoring System**:
 | Category          | Standard Mode Weight | Position-Prioritized Mode Weight | Scoring Rules                                                   |
 |--------------------|----------------------|-----------------------------------|-----------------------------------------------------------------|
 | Position Score     | 30%                  | 60%                               | ≤500 bp = 10; ≤1000 bp = 8; ≤1500 bp = 5; >1500 bp = 2          |
 | Quality Score      | 40%                  | 20%                               | Based on GC proximity to 50% (0-10 scale)                      |
 | Off-Target Score   | 30%                  | 20%                               | Perfect specificity = 10; Any off-targets = 0                  |
-
 **Output**: 
 ../output/filtered/final_filtered_gRNA.tsv: Ranked gRNAs with full scoring metadata.
 ../output/filtered/filter_qc_report.tsv: QC report (valid gRNA count per gene).
@@ -112,18 +108,15 @@ Create random sequences with zero perfect matches in the reference genome.
 cd scripts/
 python 04_NTC.py --bowtie-index ../output/bowtie/bowtie_index --count 100 --length 28 --quiet
 ```
-
 **Parameters**:
 --bowtie-index: Path to pre-built Bowtie index (from 02_bowtie.sh).
 --count: Number of NTC sequences to generate (default: 100).
 --length: Length of NTC sequences (matches Cas13 spacer length, default: 28).
 --quiet: Suppress progress messages (optional).
-
 **Output**：
 ../output/NTC.fa (FASTA file of validated NTC sequences).
 
 ## Output File Details
-
 **Final gRNAs (output/filtered/final_filtered_gRNA.tsv)**
 | Column                     | Description                                                                 |
 |----------------------------|-----------------------------------------------------------------------------|
@@ -145,10 +138,8 @@ python 04_NTC.py --bowtie-index ../output/bowtie/bowtie_index --count 100 --leng
 | GeneID       | ID of target gene from input FASTA                       |
 | valid_gRNAs  | Number of gRNAs passing all filter criteria              |
 
-
 **NTC Sequences (output/NTC.fa)**
 FASTA-formatted file with validated non-target control sequences:
-
 ```
 >NTC_001
 GGTCTTTCTGGTTGGACGGTTGGCGG
