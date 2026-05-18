@@ -1,6 +1,8 @@
 # CAS13_Guide: Genome-scale Cas13 gRNA Design Tookit
 A robust, user-friendly pipeline for designing high-specificity CRISPR-Cas13 gRNAs, including sliding window candidate generation, off-target filtering, multi-criteria optimization, and non-target control (NTC) sequence generation.
 
+CAS13_Guide 是一个轻量级、命令行友好、可直接下载使用的 Cas13 gRNA 全基因组批量设计工具，整合候选 spacer 滑窗生成、Bowtie 全基因组/转录组 off-target 计数、多指标筛选排序以及 NTC 阴性对照设计，能够快速产出适合下游 pooled screening 或多基因 knockdown 实验的高特异性 gRNA 集合。
+
 ## Overview
 This pipeline automates the entire process of Cas13 guide RNA design:
 
